@@ -1,0 +1,62 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Materialized css -->
+    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">  
+
+    <title> {% block title %} Bovine Academic System {% endblock %} </title>
+</head>
+<body>
+    
+    {% block header %} 
+        <nav class="z-depth-4">
+            <div class="nav-wrapper">
+                    <a href="{% url 'index' %}" class="brand-logo" style="margin-left:0.5em;">Academic System</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="sass.html">Sass</a></li>
+                    <li><a href="badges.html">Components</a></li>
+                    <li><a href="collapsible.html">JavaScript</a></li>
+                </ul>
+            </div>
+        </nav>
+    {% endblock %}
+
+    {% block content %} <h2>Bloque Contenido</h2> {% endblock %}
+
+    {% block footer %} 
+        <footer class="page-footer">
+            <div class="container">
+                <div class="row center">
+                    <img class="responsive-img circle" src="{% static 'img/mao.jpg' %} " width="60px" height="60px">        
+                </div>
+                <div class="row">
+                    <div class="center">
+                    <h5 class="white-text">Andrés Mauricio Caicedo Rendón</h5>
+                    <p class="grey-text text-lighten-4">Soy un entusiasta del desarrollo web y móvil para plataformas android.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container center">
+                © 2017 Copyright Andrés Mauricio Caicedo Rendón <a href="/admin/">Administrador</a>
+                </div>
+            </div>
+        </footer>
+    {% endblock %}
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- js -->
+    <!--script src="{% static 'js/jquery-3.2.1.min.js' %}"></script-->
+    <script src="{% static 'js/materialize.min.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+
+</body>
+</html>

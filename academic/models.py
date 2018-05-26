@@ -15,6 +15,7 @@ class Estudent(models.Model):
     def __unicode__(self):
         return self.name + ' ' + self.last_name
 
+
 class Teacher(models.Model):
     GENRES = (
         ('M', 'Male'),
@@ -29,19 +30,22 @@ class Teacher(models.Model):
     def __unicode__(self):
         return self.name + ' ' + self.last_name
 
+
 class Subject(models.Model):
     name = models.CharField(max_length=50)
+    teacher = models.ManyToManyField(Teacher, blank=True, null=True)
 
     def __unicode__(self):
         return self.name
 
+
 class Enroll(models.Model):
     estudent = models.ForeignKey(Estudent, on_delete=models.CASCADE)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
-    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+    #teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     first_note = models.FloatField(default=0)
     second_note = models.FloatField(default=0)
-    final_note = models.FloatField(default=0)
+    def_note = models.FloatField(default=0)
 
     class Meta:
         unique_together = ('estudent', 'subject',)
