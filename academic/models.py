@@ -1,12 +1,14 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.contrib.auth.models import User
 
 class Estudent(models.Model):
     GENRES = (
         ('M', 'Male'),
         ('F', 'Female'),
     )
+    user = models.OneToOneField(User, blank=True, null=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     age = models.IntegerField()
@@ -21,6 +23,7 @@ class Teacher(models.Model):
         ('M', 'Male'),
         ('F', 'Female'),
     )
+    user = models.OneToOneField(User, blank=True, null=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     age = models.IntegerField()
