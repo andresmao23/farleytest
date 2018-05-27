@@ -7,7 +7,8 @@ from academic.models import Estudent, Enroll
 #    return render(request, 'academic/index.html', context)
 
 def index(request):
-    student = Estudent.objects.get(id=1)
-    enrolls = Enroll.objects.filter(estudent_id=1)
+    userid = request.user.id
+    student = Estudent.objects.get(user_id=userid)
+    enrolls = Enroll.objects.filter(estudent_id=student.id)
     context = {'student':student, 'enrolls':enrolls}
     return render(request, 'academic/index.html', context)

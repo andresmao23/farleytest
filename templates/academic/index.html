@@ -1,36 +1,32 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-    <h1 class="center">Estudent Detail</h1>
-    {% if student %}
-        <h4 class="center">{{student.name}} {{student.last_name}}</h4>
-        {% if enrolls %}
-        <h4 class="center">{{enrolls}}</h4>
-            <table>
+    <h1 class="center">Welcome {{student.name}} {{student.last_name}}</h1>
+        
+        <h4 class="center">{{enrolls.id}}</h4>
+            <table class="centered striped">
                 <thead>
                     <tr>
                         <th>Subject</th>
-                        <th>First_note</th>
-                        <th>Second_note</th>
-                        <th>Definitive_note</th>
+                        <th>First Note</th>
+                        <th>Second Note</th>
+                        <th>Definitive Note</th>
                     </tr>
                 </thead>
         
                 <tbody>
-                    {% for enroll in enrolls %}
-                    <tr>
-                        <td>enroll.subject_id</td>
-                        <td>enroll.first_note</td>
-                        <td>enroll.second_note</td>
-                        <td>enroll.def_note</td>
-                    </tr>
-                    {% endfor %}
+                    {% if enrolls %}
+                        {% for enroll in enrolls %}
+                            <tr>
+                                <td>{{enroll.subject.name}}</td>
+                                <td>{{enroll.first_note}}</td>
+                                <td>{{enroll.second_note}}</td>
+                                <td>{{enroll.def_note}}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <h4 class="center">El estudiante no esta matriculado en ningún curso</h4>
+                    {% endif %}
                 </tbody>
             </table>
-        {% else %}
-            <h4 class="center">El estudiante no esta matriculado en ningún curso</h4>
-        {% endif %}
-    {% else %}
-        <h4 class="center">No existe registro de estudiantes</h4>
-    {% endif %}
 {% endblock %}

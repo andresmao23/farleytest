@@ -20,9 +20,7 @@
             <div class="nav-wrapper">
                     <a href="{% url 'index' %}" class="brand-logo" style="margin-left:0.5em;">Academic System</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="#">Estudents</a></li>
-                    <li><a href="#">Teachers</a></li>
-                    <li><a href="#">Login</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
                 </ul>
             </div>
         </nav>
@@ -47,7 +45,7 @@
             </div>
             <div class="footer-copyright">
                 <div class="container center">
-                © 2017 Copyright Andrés Mauricio Caicedo Rendón <a href="/admin/">Administrador</a>
+                © 2017 Copyright Andrés Mauricio Caicedo Rendón <!--a href="/admin/">Administrador</a-->
                 </div>
             </div>
         </footer>
