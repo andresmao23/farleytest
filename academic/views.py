@@ -6,6 +6,11 @@ from academic.models import Estudent, Enroll
 #    context = {}
 #    return render(request, 'academic/index.html', context)
 
+def index_redirect(request):
+    context = {}
+    return render(request, 'academic/index.html', context)
+
+
 def index(request):
     userid = request.user.id
     student = Estudent.objects.get(user_id=userid)

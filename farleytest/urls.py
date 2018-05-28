@@ -17,10 +17,13 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth.views import login, logout_then_login
+from academic.views import index_redirect
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^academic/', include('academic.urls')),
     url(r'^accounts/login/', login, {'template_name':'index.html'}, name='login'),
     url(r'^logout/', logout_then_login, name='logout'),
+    url(r'^$', login_required(index_redirect), name='index_redirect'),
 ]

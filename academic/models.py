@@ -35,7 +35,7 @@ class Teacher(models.Model):
 
 
 class Subject(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
     teacher = models.ManyToManyField(Teacher, blank=True, null=True)
 
     def __unicode__(self):
