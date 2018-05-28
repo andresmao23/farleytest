@@ -1,11 +1,11 @@
 # farleytest
 Django project for academic registration
 
-Python version: Python 2.7
-Django version: Django 1.9
-Database: MySQL
-MySQL connector: mysql-python 1.2.5
-Frontend: Materialize
+1) Python version: Python 2.7
+2) Django version: Django 1.9
+3) Database: MySQL
+4) MySQL connector: mysql-python 1.2.5
+5) Frontend: Materialize
 
 Create super user (open linux terminal or windows cmd into project folder):
 >python manage.py createsuperuser (Follow steps)
